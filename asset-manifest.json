@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/contact-book-application-react.redux/static/css/main.afceb0a1.css",
+    "main.js": "/contact-book-application-react.redux/static/js/main.c0ee8808.js",
+    "index.html": "/contact-book-application-react.redux/index.html",
+    "main.afceb0a1.css.map": "/contact-book-application-react.redux/static/css/main.afceb0a1.css.map",
+    "main.c0ee8808.js.map": "/contact-book-application-react.redux/static/js/main.c0ee8808.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afceb0a1.css",
+    "static/js/main.c0ee8808.js"
+  ]
+}
