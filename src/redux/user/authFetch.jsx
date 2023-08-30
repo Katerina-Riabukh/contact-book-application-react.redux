@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { useSelector } from 'react-redux';
-// import { getToken } from './userSelectors';
 
 const { createAsyncThunk } = require('@reduxjs/toolkit');
 axios.defaults.baseURL = 'https://connections-api.herokuapp.com ';
