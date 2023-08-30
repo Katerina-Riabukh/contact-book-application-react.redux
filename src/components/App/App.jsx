@@ -1,30 +1,20 @@
-import { Form } from '../form/form';
-import { ContactList } from '../contactList/contactList';
-import { FilterContacts } from '../filter/filterContacts';
-import { H1, H2, Wraper } from './App.styled';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../../redux/fetch';
-import { selectError, selectIsLoading } from 'redux/selectors';
+import { Header } from 'components/header/Header';
+import { Authorisation } from 'pages/Authorisation';
+import { Contacts } from 'pages/Contacts';
+import { Home } from 'pages/Home';
+import { Registration } from 'pages/Registration';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 export const App = () => {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <Wraper>
-      <H1>Phone book</H1>
-      <Form />
-      <H2>Contacts</H2>
-      <FilterContacts />
-      {isLoading && <p>Loading ...</p>}
-      {error && <p>Something wrong...</p>}
-      <ContactList />
-    </Wraper>
+    <Routes>
+      <Route path="/" element={<Header />}>
+        <Route index element={<Home />} />
+        <Route path="authorisation" element={<Authorisation />} />
+        <Route path="registration" element={<Registration />} />
+        <Route path="contacts" element={<Contacts />} />
+      </Route>
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };

@@ -2,21 +2,33 @@ import React from 'react';
 import { ContactItem } from './contactItem';
 import { UL } from './contactList.styled';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectfilter } from 'redux/selectors';
+import { selectContacts } from 'redux/contacts/selectors';
 
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
-  const filterValue = useSelector(selectfilter);
+  // const filterValue = useSelector(selectfilter);
+  // const contactsList = () => {
+  //   if (!contacts) {
+  //     return;
+  //   }
+  //   contacts.map(item => {
+  //     return <ContactItem item={item} key={item.id} />;
+  //   });
+  // };
 
-  const filteredContactsList = contacts.filter(contact => {
-    return contact.name.toLowerCase().includes(filterValue.toLowerCase());
-  });
+  // const filteredContactsList = contacts.filter(contact => {
+  //   return contact.name.toLowerCase().includes(filterValue.toLowerCase());
+  // });
 
   return (
     <UL>
-      {filteredContactsList.map(item => {
-        return <ContactItem item={item} key={item.id} />;
-      })}
+      {contacts.length !== 0 ? (
+        contacts.map(item => {
+          return <ContactItem item={item} />;
+        })
+      ) : (
+        <p>Here is no contacts yet.</p>
+      )}
     </UL>
   );
 };

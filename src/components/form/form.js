@@ -1,54 +1,56 @@
-import { nanoid } from "nanoid";
-import { BUTTON, FORM, Input, LABEL } from "./form.styled";
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/fetch";
-import { selectContacts } from "redux/selectors";
+import { nanoid } from 'nanoid';
+import { BUTTON, FORM, Input, LABEL } from './form.styled';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../../redux/contacts/fetch';
+// import { selectContacts } from 'redux/contacts/selectors';
 
 export const Form = () => {
-
   const [name, setName] = useState('');
   const [id, setId] = useState('');
-  const [phone, setPhone] = useState('');
-  const dispatch = useDispatch()
-  const { contacts } = useSelector(selectContacts)
+  const [number, setPhone] = useState('');
+  const dispatch = useDispatch();
+  // const { contacts } = useSelector(selectContacts);
+  const token = useSelector(state => state.user.token);
 
-
-  const handleInputChange = (event) => {
+  const handleInputChange = event => {
     const { name, value } = event.currentTarget;
     switch (name) {
       case 'name':
-        setName(value)
-        setId(nanoid(10))
+        setName(value);
+        setId(nanoid(10));
         break;
       case 'number':
-        setPhone(value)
+        setPhone(value);
         break;
       default:
         break;
     }
   };
 
-  const handleSubmitForm = (event) => {
+  const handleSubmitForm = event => {
     event.preventDefault();
-    if (contacts.some((contact) => contact.name.toLowerCase() === name.toLowerCase())) {
-      return alert(`${name} already in contacts`)
-    }
-    dispatch(addContact({ name, id, phone }))
-    reset()
-  }
+    // if (
+    //   contacts.some(
+    //     contact => contact.name.toLowerCase() === name.toLowerCase()
+    //   )
+    // ) {
+    //   return alert(`${name} already in contacts`);
+    // }
+    dispatch(addContact({ name, id, number, token }));
+    reset();
+  };
 
   const reset = () => {
-    setName('')
-    setPhone('')
-  }
+    setName('');
+    setPhone('');
+  };
 
   return (
-    <FORM onSubmit={handleSubmitForm} >
+    <FORM onSubmit={handleSubmitForm}>
       <LABEL>
         Name
         <Input
-
           value={name}
           onChange={handleInputChange}
           type="text"
@@ -61,7 +63,7 @@ export const Form = () => {
       <LABEL>
         Phone number
         <Input
-          value={phone}
+          value={number}
           onChange={handleInputChange}
           type="tel"
           name="number"
@@ -72,11 +74,5 @@ export const Form = () => {
       </LABEL>
       <BUTTON type="submit">Add to contacts</BUTTON>
     </FORM>
-  )
+  );
 };
-
-
-
-
-
-
