@@ -3,13 +3,13 @@ import { ContactList } from 'components/contactList/contactList';
 import { FilterContacts } from 'components/filter/filterContacts';
 import { Form } from 'components/form/form';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/fetch';
 // import { selectError, selectIsLoading } from 'redux/contacts/selectors';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
-  const token = useSelector(state => state.user.token);
+  // const token = useSelector(state => state.user.token);
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
 
