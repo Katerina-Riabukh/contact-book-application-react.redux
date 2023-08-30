@@ -7,14 +7,6 @@ import { selectContacts } from 'redux/contacts/selectors';
 export const ContactList = () => {
   const contacts = useSelector(selectContacts);
   // const filterValue = useSelector(selectfilter);
-  // const contactsList = () => {
-  //   if (!contacts) {
-  //     return;
-  //   }
-  //   contacts.map(item => {
-  //     return <ContactItem item={item} key={item.id} />;
-  //   });
-  // };
 
   // const filteredContactsList = contacts.filter(contact => {
   //   return contact.name.toLowerCase().includes(filterValue.toLowerCase());
