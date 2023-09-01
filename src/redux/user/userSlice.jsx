@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { authorisation, logOut, registration } from './authFetch';
+import { authorisation, logOut, refreshUser, registration } from './authFetch';
 
 export const userSlice = createSlice({
   name: 'user',
@@ -25,6 +25,13 @@ export const userSlice = createSlice({
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
+    },
+    [refreshUser.fulfilled](state, action) {
+      state.user = action.payload.user;
+      state.isLoggedIn = true;
+    },
+    [refreshUser.rejected](state, action) {
+      console.log(action);
     },
   },
 });

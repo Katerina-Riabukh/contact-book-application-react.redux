@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 
 // const BASE_URL = 'https://64e4deaac55563802913e01c.mockapi.io/'
 const BASE_URL = 'https://connections-api.herokuapp.com';
@@ -7,13 +6,13 @@ const BASE_URL = 'https://connections-api.herokuapp.com';
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
-    const token = useSelector(state => state.user.token);
+    const state = thunkAPI.getState();
     try {
       const response = await fetch(`${BASE_URL}/contacts/ `, {
         method: 'GET',
         headers: {
           'content-type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${state.user.token}`,
         },
       }).then(response => response.json());
       return response;
