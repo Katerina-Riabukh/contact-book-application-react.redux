@@ -1,29 +1,25 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { registration } from 'redux/user/authFetch';
+import { BUTTON, FORM, FormWraper, INPUT, LABEL } from './Form.styled';
 
 export const RegistrationForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(registration({ email, name, password }))
-      .unwrap()
-      .then(() => {
-        navigate('/');
-        toast('You registrated successfully =)', {
-          position: 'top-right',
-          autoClose: 3000,
-        }).catch(error => {
-          toast.error('Something wrong with your e-mail or password .(');
-        });
+    dispatch(registration({ email, name, password })).then(() => {
+      toast('You registrated successfully =)', {
+        position: 'top-right',
+        autoClose: 3000,
+      }).catch(error => {
+        toast.error('Something wrong with your e-mail or password .(');
       });
+    });
   };
 
   const handleInputChange = event => {
@@ -44,25 +40,27 @@ export const RegistrationForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name
-        <input type="text" onChange={handleInputChange} name="userName" />
-      </label>
-      <label>
-        E-mail
-        <input type="text" onChange={handleInputChange} name="email" />
-      </label>
-      <label>
-        Password
-        <input
-          type="text"
-          onChange={handleInputChange}
-          name="password"
-          minLength={7}
-        />
-      </label>
-      <button>Log In</button>
-    </form>
+    <FormWraper>
+      <FORM onSubmit={handleSubmit}>
+        <LABEL>
+          Name
+          <INPUT type="text" onChange={handleInputChange} name="userName" />
+        </LABEL>
+        <LABEL>
+          E-mail
+          <INPUT type="text" onChange={handleInputChange} name="email" />
+        </LABEL>
+        <LABEL>
+          Password
+          <INPUT
+            type="text"
+            onChange={handleInputChange}
+            name="password"
+            minLength={7}
+          />
+        </LABEL>
+        <BUTTON>Log In</BUTTON>
+      </FORM>
+    </FormWraper>
   );
 };

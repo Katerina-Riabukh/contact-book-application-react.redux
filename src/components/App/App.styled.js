@@ -3,19 +3,34 @@ import styled from 'styled-components';
 export const Wraper = styled.div`
   padding: 30px;
   padding-bottom: 30px;
-  width: 780px;
+  width: 1180px;
   height: 580px;
   margin-left: auto;
   margin-right: auto;
 `;
 
 export const H1 = styled.h1`
+  font-family: 'Aclonica';
+  color: gray;
   text-align: center;
   font-size: 32px;
 `;
 
 export const H2 = styled.h2`
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-45%, -50%);
+
+  /* font-family: 'Permanent + Marker'; */
+  font-family: 'Aclonica';
   font-size: 28px;
+  line-height: calc(44 / 28);
+  color: darkgray;
+  width: 250px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const ADD = styled.button`
@@ -28,4 +43,15 @@ export const ADD = styled.button`
   }
   display: block;
   margin-left: auto;
+`;
+
+export const HomeWraper = styled.div`
+  position: relative;
+  padding: 30px;
+  padding-bottom: 30px;
+  width: 1180px;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  /* outline: 1px solid red; */
 `;

@@ -1,6 +1,6 @@
 import { Header } from 'components/header/Header';
-import { PrivatRoute } from 'components/privat/PrivatRoyte';
-import { PublicRoute } from 'components/public/PablicRoute';
+import { PrivatRoute } from 'components/PrivatRoute';
+import { PublicRoute } from 'components/PablicRoute';
 import { Authorisation } from 'pages/Authorisation';
 import { Contacts } from 'pages/Contacts';
 import { Home } from 'pages/Home';
@@ -28,25 +28,28 @@ export const App = () => {
           <Route
             path="authorisation"
             element={
-              <PublicRoute>
-                <Authorisation />
-              </PublicRoute>
+              <PublicRoute
+                redirectTo="/contacts"
+                component={<Authorisation />}
+              />
             }
           />
           <Route
             path="registration"
             element={
-              <PublicRoute>
-                <Registration />
-              </PublicRoute>
+              <PublicRoute
+                redirectTo="/contacts"
+                component={<Registration />}
+              />
             }
           />
           <Route
             path="contacts"
             element={
-              <PrivatRoute>
-                <Contacts />
-              </PrivatRoute>
+              <PrivatRoute
+                redirectTo="/authorisation"
+                component={<Contacts />}
+              />
             }
           />
         </Route>

@@ -1,24 +1,18 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 import { authorisation } from 'redux/user/authFetch';
-import { getIsLoggedIn } from 'redux/user/userSelectors';
+import { BUTTON, FORM, FormWraper, INPUT, LABEL } from './Form.styled';
 
-export const AuthorisationForm = () => {
+export const AuthorisationForm = ({ onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isLogged = useSelector(getIsLoggedIn);
-  console.log(isLogged);
 
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(authorisation({ email, password }))
-      .unwrap()
       .then(res => {
-        navigate('/');
         toast.success('You have logged in successfully =)', {
           position: 'top-right',
           autoClose: 3000,
@@ -42,17 +36,20 @@ export const AuthorisationForm = () => {
         break;
     }
   };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        E-mail
-        <input type="text" onChange={handleInputChange} name="email" />
-      </label>
-      <label>
-        Password
-        <input type="text" onChange={handleInputChange} name="password" />
-      </label>
-      <button>Log In</button>
-    </form>
+    <FormWraper>
+      <FORM onSubmit={handleSubmit}>
+        <LABEL>
+          E-mail
+          <INPUT type="text" onChange={handleInputChange} name="email" />
+        </LABEL>
+        <LABEL>
+          Password
+          <INPUT type="text" onChange={handleInputChange} name="password" />
+        </LABEL>
+        <BUTTON>Log In</BUTTON>
+      </FORM>
+    </FormWraper>
   );
 };

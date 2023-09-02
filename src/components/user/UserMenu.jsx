@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/user/authFetch';
-import { AVATAR, NAME, SETTINGS, WRAPER } from './userMenu.styled';
+import { AVATAR, BUTTON, NAME, SETTINGS, WRAPER } from './userMenu.styled';
 import user from './user.jpg';
 import { userName } from 'redux/user/userSelectors';
 import { FcServices } from 'react-icons/fc';
@@ -19,6 +19,7 @@ export const UserMenu = () => {
       .then(() => {
         navigate('/');
         toast('We hope you come back soon 🙃', {
+          color: 'gray',
           position: 'top-right',
           autoClose: 3000,
         });
@@ -31,9 +32,9 @@ export const UserMenu = () => {
       <AVATAR src={user} alt="avatar" width={30} height={30} />
       <NAME>{name}</NAME>
       {/* <NAME>fghdfgstz</NAME> */}
-      <button type="button" onClick={handleLodOut}>
+      <BUTTON type="button" onClick={handleLodOut}>
         Log Out
-      </button>
+      </BUTTON>
       <SETTINGS>
         {
           <FcServices

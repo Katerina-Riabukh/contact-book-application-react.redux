@@ -8,6 +8,7 @@ export const WRAPER = styled.div`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
+  font-family: 'Aclonica';
   font-size: 24px;
   font-weight: 500;
   color: gray;

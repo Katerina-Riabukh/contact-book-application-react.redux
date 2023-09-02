@@ -1,5 +1,5 @@
 import { Wraper } from 'components/App/App.styled';
-import { AuthorisationForm } from 'components/authForms/AuthorisationForm';
+import { AuthorisationForm } from 'components/AuthForms/AuthorisationForm';
 
 export const Authorisation = () => {
   return (

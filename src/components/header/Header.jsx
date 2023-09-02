@@ -1,10 +1,10 @@
-import { NavUser } from 'components/header/nav-user/NavUser';
+import { NavUser } from 'components/header/Nav-User/NavUser';
 import { Outlet } from 'react-router-dom';
-import { NavBar } from './nav-bar/NavBar';
-import { UserMenu } from 'components/user/UserMenu';
+import { NavBar } from './Nav-Bar/NavBar';
+import { UserMenu } from 'components/User/UserMenu';
 import { useSelector } from 'react-redux';
 import { getIsLoggedIn } from 'redux/user/userSelectors';
-import { Container, WRAPER } from './Header.styled';
+import { Container } from './Header.styled';
 
 export const Header = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
@@ -12,10 +12,8 @@ export const Header = () => {
   return (
     <>
       <Container>
-        <WRAPER>
-          <NavBar />
-          {isLoggedIn ? <UserMenu /> : <NavUser />}
-        </WRAPER>
+        <NavBar />
+        {isLoggedIn ? <UserMenu /> : <NavUser />}
       </Container>
       <Outlet />
     </>

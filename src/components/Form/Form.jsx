@@ -23,7 +23,6 @@ export const Form = ({ onClose }) => {
   const [number, setPhone] = useState('');
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  const token = useSelector(state => state.user.token);
 
   useEffect(() => {
     const onKeyDown = e => {
@@ -68,7 +67,7 @@ export const Form = ({ onClose }) => {
     ) {
       return alert(`${name} already in contacts`);
     }
-    dispatch(addContact({ name, id, number, token }));
+    dispatch(addContact({ name, id, number }));
     onClose();
     reset();
   };

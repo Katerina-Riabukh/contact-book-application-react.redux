@@ -24,35 +24,41 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async dispatch => {
-    const { name, number, token } = dispatch;
+  async (dispatch, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const { name, number } = dispatch;
     try {
       const response = await fetch(`${BASE_URL}/contacts/`, {
         method: 'POST',
         headers: {
           'content-type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${state.user.token}`,
         },
         body: JSON.stringify({ name, number }),
       }).then(responce => responce.json());
       return response;
-    } catch (error) {}
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async dispatch => {
-    const { id, token } = dispatch;
+  async (dispatch, thunkAPI) => {
+    const { id } = dispatch;
+    const state = thunkAPI.getState();
     try {
       const response = await fetch(`${BASE_URL}/contacts/${id}`, {
         method: 'DELETE',
         headers: {
           'content-type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${state.user.token}`,
         },
       }).then(responce => responce.json());
       return response;
-    } catch (error) {}
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
   }
 );

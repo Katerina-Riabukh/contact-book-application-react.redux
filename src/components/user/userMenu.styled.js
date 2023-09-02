@@ -13,6 +13,8 @@ export const AVATAR = styled.img`
 
 export const NAME = styled.p`
   display: block;
+  font-family: 'Aclonica';
+  color: gray;
   text-align: center;
   padding: 5px;
   font-size: 24px;
@@ -28,4 +30,10 @@ export const SETTINGS = styled.button`
   border: transparent;
   background-color: transparent;
   cursor: pointer;
+`;
+
+export const BUTTON = styled.button`
+  font-family: 'Aclonica';
+  color: gray;
+  padding: 5px;
 `;

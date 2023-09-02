@@ -5,6 +5,8 @@ export const LI = styled.li`
   display: flex;
 `;
 export const Name = styled.span`
+  font-family: 'Aclonica';
+  color: gray;
   text-transform: capitalize;
   font-size: 18px;
   font-weight: 500;
@@ -24,4 +26,9 @@ export const Button = styled.button`
   &:hover {
     background-color: lightgray;
   }
+`;
+
+export const NUMBER = styled.span`
+  font-family: 'Aclonica';
+  color: gray;
 `;

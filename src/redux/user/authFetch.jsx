@@ -9,7 +9,6 @@ const setUserHeader = token => {
 export const registration = createAsyncThunk(
   'user/registration',
   async credentials => {
-    console.log(credentials);
     try {
       const { data } = await axios.post('/users/signup', credentials);
       return data;
@@ -48,7 +47,7 @@ export const refreshUser = createAsyncThunk(
     const state = thunkAPI.getState();
     const token = state.user.token;
     if (token === null) {
-      thunkAPI.rejectWithValue();
+      return thunkAPI.rejectWithValue();
     }
     try {
       setUserHeader(token);

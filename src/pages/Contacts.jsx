@@ -1,13 +1,13 @@
 import { ADD, H1, Wraper } from 'components/App/App.styled';
-import { ContactList } from 'components/contactList/contactList';
-import { FilterContacts } from 'components/filter/filterContacts';
-import { Form } from 'components/form/form';
+
+import { FilterContacts } from 'components/Filter/FilterContacts';
+import { Form } from 'components/Form/Form';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/fetch';
 import { FcAddDatabase } from 'react-icons/fc';
-// import { selectError, selectIsLoading } from 'redux/contacts/selectors';
+import { ContactList } from 'components/ContactList/ContactList';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -28,7 +28,6 @@ export const Contacts = () => {
         }
       </ADD>
       {showModal && <Form onClose={() => setShowModal(false)} />}
-      {/* <H2>Contacts</H2> */}
       <FilterContacts />
       <ContactList />
     </Wraper>
