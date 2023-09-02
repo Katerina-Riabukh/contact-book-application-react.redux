@@ -1,9 +1,10 @@
+import { Wraper } from 'components/App/App.styled';
 import { AuthorisationForm } from 'components/authForms/AuthorisationForm';
 
 export const Authorisation = () => {
   return (
-    <div>
+    <Wraper>
       <AuthorisationForm />
-    </div>
+    </Wraper>
   );
 };
