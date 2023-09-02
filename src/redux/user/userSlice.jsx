@@ -27,7 +27,7 @@ export const userSlice = createSlice({
       state.isLoggedIn = false;
     },
     [refreshUser.fulfilled](state, action) {
-      state.user = action.payload.user;
+      state.user = action.payload;
       state.isLoggedIn = true;
     },
     [refreshUser.rejected](state, action) {

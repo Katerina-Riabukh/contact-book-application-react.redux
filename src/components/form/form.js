@@ -8,7 +8,7 @@ import {
   LABEL,
   MODAL,
 } from './form.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/fetch';
 import { selectContacts } from 'redux/contacts/selectors';
@@ -23,6 +23,25 @@ export const Form = ({ onClose }) => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const token = useSelector(state => state.user.token);
+
+  useEffect(() => {
+    const onKeyDown = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [onClose]);
+
+  const onBackdropClick = e => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   const handleInputChange = event => {
     const { name, value } = event.currentTarget;
@@ -59,7 +78,7 @@ export const Form = ({ onClose }) => {
   };
 
   return createPortal(
-    <BACKDROP>
+    <BACKDROP onClick={onBackdropClick}>
       <MODAL>
         <FORM onSubmit={handleSubmitForm}>
           <CLOSE onClick={() => onClose()}></CLOSE>

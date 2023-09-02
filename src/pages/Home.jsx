@@ -1,3 +1,7 @@
 export const Home = () => {
-  return <h2>Home</h2>;
+  return (
+    <div>
+      <h2>Welcon to contacts book</h2>
+    </div>
+  );
 };

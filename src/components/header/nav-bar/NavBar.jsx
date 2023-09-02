@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { getIsLoggedIn } from 'redux/user/userSelectors';
 import logo from './logo.png';
+import { LOGO, NavLinkStyled } from './NavBar.styled';
 
 export const NavBar = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <>
-      <NavLink to="/">
+      <LOGO to="/">
         <img src={logo} alt="logo" width={30} height={30} />
-      </NavLink>
-      <NavLink to="/">Home</NavLink>
-      {isLoggedIn && <NavLink to="contacts">Contacts</NavLink>}
+      </LOGO>
+      <NavLinkStyled to="/">Home</NavLinkStyled>
+      {isLoggedIn && <NavLinkStyled to="contacts">Contacts book</NavLinkStyled>}
     </>
   );
 };
