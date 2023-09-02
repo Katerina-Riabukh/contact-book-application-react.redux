@@ -8,6 +8,7 @@ import { Container, WRAPER } from './Header.styled';
 
 export const Header = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
+
   return (
     <>
       <Container>

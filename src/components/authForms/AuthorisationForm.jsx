@@ -1,15 +1,32 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { authorisation } from 'redux/user/authFetch';
+import { getIsLoggedIn } from 'redux/user/userSelectors';
 
 export const AuthorisationForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const isLogged = useSelector(getIsLoggedIn);
+  console.log(isLogged);
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(authorisation({ email, password }));
+    dispatch(authorisation({ email, password }))
+      .unwrap()
+      .then(res => {
+        navigate('/');
+        toast.success('You have logged in successfully =)', {
+          position: 'top-right',
+          autoClose: 3000,
+        });
+      })
+      .catch(error => {
+        toast.error('Something wrong with your e-mail or password .(');
+      });
   };
 
   const handleInputChange = event => {

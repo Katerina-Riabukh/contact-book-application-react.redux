@@ -25,6 +25,7 @@ export const BUTTON = styled.button`
   padding: 5px;
   border-radius: 5px;
   border: 0.5px solid gray;
+  cursor: pointer;
   &:hover {
     background-color: lightgray;
   }
@@ -53,6 +54,10 @@ export const MODAL = styled.div`
 `;
 
 export const CLOSE = styled.button`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
 `;

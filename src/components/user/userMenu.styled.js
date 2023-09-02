@@ -18,6 +18,14 @@ export const NAME = styled.p`
   font-size: 24px;
   width: 70px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   -webkit-box-orient: horizontal;
+`;
+
+export const SETTINGS = styled.button`
+  width: 30px;
+  height: 30px;
+  border: transparent;
+  background-color: transparent;
+  cursor: pointer;
 `;

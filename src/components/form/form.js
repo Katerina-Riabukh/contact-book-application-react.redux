@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/fetch';
 import { selectContacts } from 'redux/contacts/selectors';
 import { createPortal } from 'react-dom';
+import { FcAcceptDatabase, FcUndo } from 'react-icons/fc';
 
 const modalRoot = document.getElementById('modal');
 
@@ -81,7 +82,18 @@ export const Form = ({ onClose }) => {
     <BACKDROP onClick={onBackdropClick}>
       <MODAL>
         <FORM onSubmit={handleSubmitForm}>
-          <CLOSE onClick={() => onClose()}></CLOSE>
+          <CLOSE onClick={() => onClose()}>
+            {
+              <FcUndo
+                style={{
+                  width: '30px',
+                  height: '30px',
+                  margin: '0px',
+                  padding: '0',
+                }}
+              />
+            }
+          </CLOSE>
           <LABEL>
             Name
             <Input
@@ -106,7 +118,13 @@ export const Form = ({ onClose }) => {
               required
             />
           </LABEL>
-          <BUTTON type="submit">Add to contacts</BUTTON>
+          <BUTTON type="submit">
+            {
+              <FcAcceptDatabase
+                style={{ width: '50px', height: '50px', margin: '0px' }}
+              />
+            }
+          </BUTTON>
         </FORM>
       </MODAL>
     </BACKDROP>,

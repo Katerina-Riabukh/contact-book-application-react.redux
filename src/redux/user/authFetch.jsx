@@ -9,16 +9,9 @@ const setUserHeader = token => {
 export const registration = createAsyncThunk(
   'user/registration',
   async credentials => {
+    console.log(credentials);
     try {
-      const data = await fetch(
-        'https://connections-api.herokuapp.com/users/signup',
-        {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(credentials),
-        }
-      ).then(response => response.json());
-      console.log(data);
+      const { data } = await axios.post('/users/signup', credentials);
       return data;
     } catch (error) {}
   }
@@ -27,16 +20,8 @@ export const registration = createAsyncThunk(
 export const authorisation = createAsyncThunk(
   'user/authorisation',
   async credentials => {
-    console.log(JSON.stringify(credentials));
     try {
-      const data = await fetch(
-        'https://connections-api.herokuapp.com/users/login',
-        {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(credentials),
-        }
-      ).then(response => response.json());
+      const { data } = await axios.post('/users/login', credentials);
       return data;
     } catch (error) {}
   }
@@ -82,23 +67,45 @@ export const refreshUser = createAsyncThunk(
 //   } catch (error) {}
 // });
 
-// export const authorisation = createAsyncThunk(
-//   'user/authorisation',
-//   async credentials => {
+// export const registration = createAsyncThunk(
+//   'user/registration',
+//   async (credentials, thunkAPI) => {
 //     try {
-//       const { data } = await axios.post('/users/login', credentials);
+//       const data = await fetch(
+//         'https://connections-api.herokuapp.com/users/signup',
+//         {
+//           method: 'POST',
+//           headers: { 'content-type': 'application/json' },
+//           body: JSON.stringify(credentials),
+//         }
+//       ).then(response => response.json());
+//       console.log(data);
 //       return data;
-//     } catch (error) {}
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
 //   }
 // );
 
-// export const registration = createAsyncThunk(
-//   'user/registration',
-//   async credentials => {
-//     console.log(credentials);
+// export const authorisation = createAsyncThunk(
+//   'user/authorisation',
+//   async (credentials, thunkAPI) => {
 //     try {
-//       const { data } = await axios.post('/users/signup', credentials);
+//       const data = await fetch(
+//         'https://connections-api.herokuapp.com/users/login',
+//         {
+//           method: 'POST',
+//           headers: { 'content-type': 'application/json' },
+//           body: JSON.stringify(credentials),
+//         }
+//       ).then(response => response.json());
+//       // if (data==={}) {
+//       //   thunkAPI.rejectWithValue();
+//       // }
 //       return data;
-//     } catch (error) {}
+//     } catch (error) {
+//       console.log(thunkAPI.rejectWithValue(error.message));
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
 //   }
 // );

@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLinkStyled, WRAPER } from './NavUser.styled';
 
 export const NavUser = () => {
   return (
-    <div>
-      <NavLink to="registration">Registration</NavLink>
-      <NavLink to="authorisation">Authorisation</NavLink>
-    </div>
+    <WRAPER>
+      <NavLinkStyled to="registration">Registration</NavLinkStyled>
+      <NavLinkStyled to="authorisation">Log In</NavLinkStyled>
+    </WRAPER>
   );
 };

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { registration } from 'redux/user/authFetch';
 
 export const RegistrationForm = () => {
@@ -7,11 +9,21 @@ export const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e);
-    dispatch(registration({ email, name, password }));
+    dispatch(registration({ email, name, password }))
+      .unwrap()
+      .then(() => {
+        navigate('/');
+        toast('You registrated successfully =)', {
+          position: 'top-right',
+          autoClose: 3000,
+        }).catch(error => {
+          toast.error('Something wrong with your e-mail or password .(');
+        });
+      });
   };
 
   const handleInputChange = event => {
@@ -43,7 +55,12 @@ export const RegistrationForm = () => {
       </label>
       <label>
         Password
-        <input type="text" onChange={handleInputChange} name="password" />
+        <input
+          type="text"
+          onChange={handleInputChange}
+          name="password"
+          minLength={7}
+        />
       </label>
       <button>Log In</button>
     </form>

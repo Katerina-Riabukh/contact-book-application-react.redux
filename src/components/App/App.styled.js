@@ -5,8 +5,6 @@ export const Wraper = styled.div`
   padding-bottom: 30px;
   width: 780px;
   height: 580px;
-  background-color: lightblue;
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
 `;
@@ -21,11 +19,13 @@ export const H2 = styled.h2`
 `;
 
 export const ADD = styled.button`
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin-left: auto;
-  border: none;
-  padding: 0px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0.5px solid gray;
   cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
+  display: block;
+  margin-left: auto;
 `;
