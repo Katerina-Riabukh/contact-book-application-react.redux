@@ -38,7 +38,13 @@ export const BUTTON = styled.button`
   color: inherit;
   padding: 5px;
   border: transparent;
+  cursor: pointer;
   background-color: transparent;
+  &:hover,
+  :focus {
+    scale: 1.1;
+  }
+
   @media (max-width: 768px) {
     font-size: 14px;
     padding: 2px;

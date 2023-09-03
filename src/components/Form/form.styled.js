@@ -73,4 +73,8 @@ export const CLOSE = styled.button`
   border: transparent;
   background-color: transparent;
   cursor: pointer;
+  &:hover,
+  :focus {
+    scale: 1.1;
+  }
 `;

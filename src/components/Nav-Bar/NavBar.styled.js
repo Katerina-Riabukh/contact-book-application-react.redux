@@ -3,6 +3,10 @@ import { styled } from 'styled-components';
 
 export const LOGO = styled(NavLink)`
   margin-right: 30px;
+  &:hover,
+  :focus {
+    scale: 1.1;
+  }
 `;
 
 export const LogoImg = styled.img`

@@ -21,7 +21,6 @@ export const H2 = styled.h2`
   transform: translate(-45%, -50%);
   font-size: 28px;
   line-height: calc(44 / 28);
-  color: darkgray;
   width: 250px;
   text-align: center;
   margin-left: auto;
