@@ -1,4 +1,4 @@
-import { Header } from 'components/header/Header';
+import { Header } from 'components/Navigation/Header';
 import { PrivatRoute } from 'components/PrivatRoute';
 import { PublicRoute } from 'components/PablicRoute';
 import { Authorisation } from 'pages/Authorisation';
