@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/contact-book-application-react.redux/static/css/main.f0ce8171.css",
-    "main.js": "/contact-book-application-react.redux/static/js/main.70f39420.js",
+    "main.css": "/contact-book-application-react.redux/static/css/main.6610f530.css",
+    "main.js": "/contact-book-application-react.redux/static/js/main.ddf5fff8.js",
     "static/media/user.jpg": "/contact-book-application-react.redux/static/media/user.08fa5db153816918efa4.jpg",
     "static/media/logo.png": "/contact-book-application-react.redux/static/media/logo.219346e4b72cc7c271b2.png",
+    "static/media/picture2.webp": "/contact-book-application-react.redux/static/media/picture2.d1b1c4e86519e1301345.webp",
     "index.html": "/contact-book-application-react.redux/index.html",
-    "main.f0ce8171.css.map": "/contact-book-application-react.redux/static/css/main.f0ce8171.css.map",
-    "main.70f39420.js.map": "/contact-book-application-react.redux/static/js/main.70f39420.js.map"
+    "main.6610f530.css.map": "/contact-book-application-react.redux/static/css/main.6610f530.css.map",
+    "main.ddf5fff8.js.map": "/contact-book-application-react.redux/static/js/main.ddf5fff8.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0ce8171.css",
-    "static/js/main.70f39420.js"
+    "static/css/main.6610f530.css",
+    "static/js/main.ddf5fff8.js"
   ]
 }
