@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/user/authFetch';
-import { AVATAR, BUTTON, NAME, SETTINGS, WRAPER } from './userMenu.styled';
+import { AVATAR, BUTTON, NAME, WRAPER } from './userMenu.styled';
 import user from './user.jpg';
 import { userName } from 'redux/user/userSelectors';
-import { FcServices } from 'react-icons/fc';
+// import { FcServices } from 'react-icons/fc';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { FcUndo } from 'react-icons/fc';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -33,15 +34,25 @@ export const UserMenu = () => {
       <NAME>{name}</NAME>
       {/* <NAME>fghdfgstz</NAME> */}
       <BUTTON type="button" onClick={handleLodOut}>
-        Log Out
+        {
+          <FcUndo
+            style={{
+              width: '30px',
+              height: '30px',
+              margin: '0px',
+              padding: '0',
+              color: 'gray',
+            }}
+          />
+        }
       </BUTTON>
-      <SETTINGS>
+      {/* <SETTINGS>
         {
           <FcServices
             style={{ width: '20px', height: '20px', margin: '0px' }}
           />
         }
-      </SETTINGS>
+      </SETTINGS> */}
     </WRAPER>
   );
 };

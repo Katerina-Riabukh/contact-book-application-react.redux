@@ -3,15 +3,13 @@ import styled from 'styled-components';
 export const Wraper = styled.div`
   padding: 30px;
   padding-bottom: 30px;
-  width: 1180px;
-  height: 580px;
+  max-width: 1180px;
+  /* height: 580px; */
   margin-left: auto;
   margin-right: auto;
 `;
 
 export const H1 = styled.h1`
-  font-family: 'Aclonica';
-  color: gray;
   text-align: center;
   font-size: 32px;
 `;
@@ -21,9 +19,6 @@ export const H2 = styled.h2`
   top: 20%;
   left: 50%;
   transform: translate(-45%, -50%);
-
-  /* font-family: 'Permanent + Marker'; */
-  font-family: 'Aclonica';
   font-size: 28px;
   line-height: calc(44 / 28);
   color: darkgray;
@@ -49,7 +44,7 @@ export const HomeWraper = styled.div`
   position: relative;
   padding: 30px;
   padding-bottom: 30px;
-  width: 1180px;
+  max-width: 1180px;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;

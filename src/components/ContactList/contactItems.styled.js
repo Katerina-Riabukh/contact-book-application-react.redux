@@ -10,7 +10,7 @@ export const Name = styled.span`
   text-transform: capitalize;
   font-size: 18px;
   font-weight: 500;
-  margin-right: 10px;
+  margin-right: 40px;
   width: 170px;
   overflow: hidden;
   text-overflow: ellipsis;

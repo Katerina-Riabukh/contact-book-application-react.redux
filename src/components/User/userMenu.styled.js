@@ -13,13 +13,16 @@ export const AVATAR = styled.img`
 
 export const NAME = styled.p`
   display: block;
-  text-align: center;
+  /* text-align: center; */
   padding: 5px;
   font-size: 24px;
   width: 70px;
   overflow: hidden;
   /* text-overflow: ellipsis; */
   -webkit-box-orient: horizontal;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 `;
 
 export const SETTINGS = styled.button`
@@ -34,4 +37,10 @@ export const BUTTON = styled.button`
   font-family: inherit;
   color: inherit;
   padding: 5px;
+  border: transparent;
+  background-color: transparent;
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding: 2px;
+  }
 `;

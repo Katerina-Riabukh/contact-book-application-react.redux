@@ -59,7 +59,7 @@ export const RegistrationForm = () => {
             minLength={7}
           />
         </LABEL>
-        <BUTTON>Log In</BUTTON>
+        <BUTTON>Sing In</BUTTON>
       </FORM>
     </FormWraper>
   );

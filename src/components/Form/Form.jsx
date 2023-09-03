@@ -13,7 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/fetch';
 import { selectContacts } from 'redux/contacts/selectors';
 import { createPortal } from 'react-dom';
-import { FcAcceptDatabase, FcUndo } from 'react-icons/fc';
+import { FcAcceptDatabase } from 'react-icons/fc';
+import { CiCircleRemove } from 'react-icons/ci';
 
 const modalRoot = document.getElementById('modal');
 
@@ -81,14 +82,16 @@ export const Form = ({ onClose }) => {
     <BACKDROP onClick={onBackdropClick}>
       <MODAL>
         <FORM onSubmit={handleSubmitForm}>
+          {/* <CLOSE onClick={() => onClose()}>{ <CiCircleRemove/>}<CLOSE/> */}
           <CLOSE onClick={() => onClose()}>
             {
-              <FcUndo
+              <CiCircleRemove
                 style={{
                   width: '30px',
                   height: '30px',
                   margin: '0px',
                   padding: '0',
+                  color: 'gray',
                 }}
               />
             }

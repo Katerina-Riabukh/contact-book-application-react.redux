@@ -8,8 +8,11 @@ export const WRAPER = styled.div`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
-  font-family: 'Aclonica';
+  font-family: inherit;
+  color: inherit;
   font-size: 24px;
   font-weight: 500;
-  color: gray;
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
 `;
