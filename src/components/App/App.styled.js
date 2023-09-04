@@ -18,13 +18,26 @@ export const H2 = styled.h2`
   position: absolute;
   top: 20%;
   left: 50%;
-  transform: translate(-45%, -50%);
+  transform: translate(-50%, -50%);
   font-size: 28px;
   line-height: calc(44 / 28);
   width: 250px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 424px) {
+    font-size: 22px;
+    line-height: calc(44 / 22);
+  }
+`;
+
+export const IMG = styled.img`
+  @media (max-width: 1100px) {
+    margin-top: 92px;
+  }
+  @media (max-width: 767px) {
+    margin-top: 190px;
+  }
 `;
 
 export const ADD = styled.button`

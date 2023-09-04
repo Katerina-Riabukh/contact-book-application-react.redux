@@ -62,6 +62,9 @@ export const MODAL = styled.div`
   @media (max-width: 767px) {
     max-width: 290px;
   }
+  @media (max-width: 424px) {
+    width: 250px;
+  }
 `;
 
 export const CLOSE = styled.button`

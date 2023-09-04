@@ -7,6 +7,9 @@ export const LOGO = styled(NavLink)`
   :focus {
     scale: 1.1;
   }
+  @media (max-width: 424px) {
+    margin-right: 10px;
+  }
 `;
 
 export const LogoImg = styled.img`
@@ -26,5 +29,9 @@ export const NavLinkStyled = styled(NavLink)`
   margin-right: 30px;
   @media (max-width: 767px) {
     font-size: 18px;
+  }
+  @media (max-width: 424px) {
+    font-size: 16px;
+    margin-right: 20px;
   }
 `;
